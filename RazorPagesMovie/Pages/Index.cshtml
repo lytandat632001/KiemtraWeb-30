@@ -1,0 +1,37 @@
+﻿@page
+@model RazorPagesMovie.Pages_News.IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <p>Danh sách tiêu đê
+    </p>
+</div>
+
+  
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.News[0].Title)
+            </th>
+            <th></th>
+        </tr>
+    <tbody>
+@foreach (var item in Model.News) {
+  
+        <tr>
+            <td>
+                 <img width="100" src="@Html.DisplayFor(modelItem => item.ImageUrl)" >
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+          
+            <td>
+                <a asp-page="/News/Details" asp-route-id="@item.ID">Details</a>
+               
+            </td>
+        </tr>
+        
+}
+    </tbody>
